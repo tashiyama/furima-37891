@@ -17,7 +17,7 @@
 
 - has_many   :items
 - has_many   :orders
-- has_one    :shipping_address
+
 
 
 ## items テーブル
@@ -25,7 +25,7 @@
 | Column                 | Type       | Options                        |
 | -----------------------| ---------- | ------------------------------ |
 | item_name              | string     | null: false                    |
-| item_inf               | text       | null: false                    |
+| item_info              | text       | null: false                    |
 | price                  | integer    | null: false                    |
 | category_id            | integer    | null: false                    |
 | sales_status_id        | integer    | null: false                    |
@@ -38,7 +38,7 @@
 
 - belongs_to :user
 - has_one    :order
-- has_one    :shipping_address
+
 
 ## orders テーブル
 
