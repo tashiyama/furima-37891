@@ -1,10 +1,10 @@
 class ItemsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :edit, :update, :destroy]
   before_action :item_find,          only: [:show, :edit, :update, :destroy]
-  before_action :not_current_user,   only: [:edit, :destroy]
+  before_action :not_current_user,   only: [:edit, :update]
 
   def index
-    @items = Item.order('created_at DESC')
+    @items = Item.all.order('created_at DESC')
   end
 
   def new
@@ -53,7 +53,7 @@ class ItemsController < ApplicationController
   end
 
   def not_current_user
-    if @item.user_id != current_user.id
+    if @item.user_id != current_user.id || !@item.order.nil?
       redirect_to root_path
     end
   end
